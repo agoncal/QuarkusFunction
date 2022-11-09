@@ -1,0 +1,4 @@
+# Project exclude paths
+/quarkus-azfa/target/
+.idea
+target
