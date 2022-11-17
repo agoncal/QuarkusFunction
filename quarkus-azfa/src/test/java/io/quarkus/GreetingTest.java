@@ -15,33 +15,33 @@ public class GreetingTest {
     @Disabled
     public void testJaxrs() {
         RestAssured.when().get("/hello").then()
-                .statusCode(200)
-                .contentType("text/plain")
-                .body(equalTo(String.format("Values [%s]", System.getenv().toString())));
+            .statusCode(200)
+            .contentType("text/plain")
+            .body(equalTo(String.format("Values [%s]", System.getenv().toString())));
     }
 
     @Test
     @Disabled
     public void testJaxrsPost() {
         RestAssured.when().post("/hello").then()
-                .statusCode(200)
-                .contentType("text/plain,application/json")
-                .body(equalTo("hallo i'm post"));
+            .statusCode(200)
+            .contentType("text/plain,application/json")
+            .body(equalTo("hallo i'm post"));
     }
 
     @Test
     public void testServlet() {
         RestAssured.when().get("/servlet/hello").then()
-                .statusCode(200)
-                .contentType("text/plain")
-                .body(equalTo("hello servlet"));
+            .statusCode(200)
+            .contentType("text/plain")
+            .body(equalTo("hello servlet"));
     }
 
     @Test
     public void testVertx() {
         RestAssured.when().get("/vertx/hello").then()
-                .statusCode(200)
-                .contentType("text/plain")
-                .body(equalTo("hello vertx"));
+            .statusCode(200)
+            .contentType("text/plain")
+            .body(equalTo("hello vertx"));
     }
 }

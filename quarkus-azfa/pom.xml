@@ -1,16 +1,15 @@
 <?xml version="1.0"?>
-<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd"
+         xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
     <groupId>pg.home</groupId>
     <artifactId>quarkus-azure-functions</artifactId>
-    <relativePath>../pom.xml</relativePath>
     <version>1.0-SNAPSHOT</version>
   </parent>
 
-  <groupId>pg.home.azfa</groupId>
   <artifactId>quarkus-azfa</artifactId>
 
   <properties>
@@ -22,21 +21,9 @@
     <stagingDirectory>${project.build.directory}/azure-functions/${functionAppName}</stagingDirectory>
     <quarkus.package.type>uber-jar</quarkus.package.type>
   </properties>
-
-  <dependencyManagement>
-    <dependencies>
-      <dependency>
-        <groupId>${quarkus.platform.group-id}</groupId>
-        <artifactId>${quarkus.platform.artifact-id}</artifactId>
-        <version>${quarkus.platform.version}</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
-    </dependencies>
-  </dependencyManagement>
   <dependencies>
     <dependency>
-      <groupId>io.quarkus.db</groupId>
+      <groupId>pg.home</groupId>
       <artifactId>data-access</artifactId>
       <version>1.0-SNAPSHOT</version>
     </dependency>
@@ -130,10 +117,10 @@
           <auth>
             <type>service_principal</type>
             <client></client>
-				    <tenant></tenant>
-				    <key></key>
+            <tenant></tenant>
+            <key></key>
             <environment>AzureChina</environment>
-        </auth>
+          </auth>
         </configuration>
       </plugin>
       <plugin>

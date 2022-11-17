@@ -1,7 +1,13 @@
 package io.quarkus.db.entities;
 
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Convert;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
@@ -25,7 +31,8 @@ public class CarEntity implements Serializable {
 
     private String description;
 
-    public CarEntity() { }
+    public CarEntity() {
+    }
 
     public CarEntity(boolean active, LocalDateTime created, LocalDateTime firstRegistrationDate) {
         this(null, active, created, firstRegistrationDate);
@@ -81,10 +88,10 @@ public class CarEntity implements Serializable {
     @Override
     public String toString() {
         return "CarEntity{" +
-                "id=" + id +
-                ", active=" + active +
-                ", created=" + created +
-                ", firstRegistrationDate=" + firstRegistrationDate +
-                '}';
+            "id=" + id +
+            ", active=" + active +
+            ", created=" + created +
+            ", firstRegistrationDate=" + firstRegistrationDate +
+            '}';
     }
 }
