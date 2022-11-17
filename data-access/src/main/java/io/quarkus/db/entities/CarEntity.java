@@ -34,15 +34,11 @@ public class CarEntity implements Serializable {
     public CarEntity() {
     }
 
-    public CarEntity(boolean active, LocalDateTime created, LocalDateTime firstRegistrationDate) {
-        this(null, active, created, firstRegistrationDate);
-    }
-
-    public CarEntity(Long id, boolean active, LocalDateTime created, LocalDateTime firstRegistrationDate) {
-        this.id = id;
+    public CarEntity(boolean active, LocalDateTime created, LocalDateTime firstRegistrationDate, String description) {
         this.active = active;
         this.created = created;
         this.firstRegistrationDate = firstRegistrationDate;
+        this.description = description;
     }
 
     public Long getId() {
@@ -92,6 +88,7 @@ public class CarEntity implements Serializable {
             ", active=" + active +
             ", created=" + created +
             ", firstRegistrationDate=" + firstRegistrationDate +
+            ", description=" + description +
             '}';
     }
 }
