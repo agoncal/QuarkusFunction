@@ -1,6 +1,6 @@
-package io.quarkus;
+package io.azfa.function;
 
-import io.quarkus.dto.CarDto;
+import io.azfa.function.dto.CarDto;
 import io.quarkus.test.junit.QuarkusTest;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
@@ -14,7 +14,7 @@ import static javax.ws.rs.core.MediaType.APPLICATION_JSON;
 import static org.hamcrest.Matchers.equalTo;
 
 @QuarkusTest
-class GreetingResourceTest {
+class CarResourceTest {
 
     @Test
     void testJaxrs() {

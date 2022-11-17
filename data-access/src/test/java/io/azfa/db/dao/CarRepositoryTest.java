@@ -1,6 +1,6 @@
-package io.quarkus.db.dao;
+package io.azfa.db.dao;
 
-import io.quarkus.db.entities.CarEntity;
+import io.azfa.db.entities.CarEntity;
 import io.quarkus.test.junit.QuarkusTest;
 import org.junit.jupiter.api.Test;
 
@@ -9,7 +9,6 @@ import java.time.LocalDateTime;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @QuarkusTest
 class CarRepositoryTest {
@@ -20,7 +19,13 @@ class CarRepositoryTest {
     @Test
     void shouldSaveAndCheckCars() {
         long initialNumberOfCars = carRepository.count();
-        assertTrue(initialNumberOfCars == 11); // Number of cars in the import.sql file
+
+        System.out.println("########################");
+        System.out.println(initialNumberOfCars);
+        carRepository.listAll().forEach(System.out::println);
+        System.out.println("########################");
+
+        assertEquals(11, initialNumberOfCars); // Number of cars in the import.sql file
 
         CarEntity fiesta = new CarEntity(true, LocalDateTime.now(), LocalDateTime.now(), "Ford Fiesta");
         carRepository.persist(fiesta);

@@ -1,4 +1,4 @@
-package io.quarkus;
+package io.azfa.function;
 
 import io.quarkus.test.junit.QuarkusTest;
 import io.restassured.RestAssured;

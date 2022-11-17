@@ -1,9 +1,8 @@
-package io.quarkus;
+package io.azfa.function;
 
-import io.quarkus.dto.CarDto;
-import io.quarkus.services.ResourceService;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import io.azfa.function.dto.CarDto;
+import io.azfa.function.services.CarService;
+import org.jboss.logging.Logger;
 
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
@@ -13,35 +12,47 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.util.List;
 
 import static javax.ws.rs.core.Response.Status.CREATED;
 
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
 @Path("/cars")
-public class GreetingResource {
-
-    private final Logger logger = LoggerFactory.getLogger(GreetingResource.class);
-    private final ResourceService resourceService;
+public class CarResource {
 
     @Inject
-    public GreetingResource(ResourceService resourceService) {
-        this.resourceService = resourceService;
+    Logger logger;
+    private final CarService carService;
+
+    @Inject
+    public CarResource(CarService carService) {
+        this.carService = carService;
     }
 
+    /**
+     * curl 'localhost:8080/api/cars'
+     */
     @GET
     public Response getAllCars() {
-        logger.info("Getting all cars");
-        return Response.ok(resourceService.getCars()).build();
+        List<CarDto> cars = carService.getCars();
+        logger.info("Getting all cars: " + cars.size());
+        return Response.ok(cars).build();
     }
 
+    /**
+     * curl 'localhost:8080/api/cars/hello'
+     */
     @POST
     public Response persistCar(CarDto carDto) {
         logger.info("Persisting a car");
-        resourceService.persistCar(carDto);
+        carService.persistCar(carDto);
         return Response.status(CREATED).build();
     }
 
+    /**
+     * curl 'localhost:8080/api/cars/hello'
+     */
     @GET
     @Produces(MediaType.TEXT_PLAIN)
     @Path("/hello")

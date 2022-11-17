@@ -1,6 +1,6 @@
-package io.quarkus.db.dao;
+package io.azfa.db.dao;
 
-import io.quarkus.db.entities.CarEntity;
+import io.azfa.db.entities.CarEntity;
 import io.quarkus.hibernate.orm.panache.PanacheRepository;
 
 import javax.enterprise.context.ApplicationScoped;
