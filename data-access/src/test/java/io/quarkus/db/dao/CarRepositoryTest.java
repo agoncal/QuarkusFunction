@@ -9,6 +9,7 @@ import java.time.LocalDateTime;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @QuarkusTest
 class CarRepositoryTest {
@@ -19,6 +20,7 @@ class CarRepositoryTest {
     @Test
     void shouldSaveAndCheckCars() {
         long initialNumberOfCars = carRepository.count();
+        assertTrue(initialNumberOfCars == 11); // Number of cars in the import.sql file
 
         CarEntity fiesta = new CarEntity(true, LocalDateTime.now(), LocalDateTime.now(), "Ford Fiesta");
         carRepository.persist(fiesta);

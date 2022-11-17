@@ -1,6 +1,7 @@
 package io.quarkus.services;
 
 import io.quarkus.db.dao.CarRepository;
+import io.quarkus.db.entities.CarEntity;
 import io.quarkus.dto.CarDto;
 
 import javax.enterprise.context.ApplicationScoped;
@@ -22,4 +23,8 @@ public class ResourceService {
             .collect(toList());
     }
 
+    public void persistCar(CarDto carDto) {
+        CarEntity carEntity = new CarEntity(carDto.isActive(), carDto.getCreated(), carDto.getFirstRegistrationDate(), carDto.getDescription());
+        carDao.persist(carEntity);
+    }
 }
