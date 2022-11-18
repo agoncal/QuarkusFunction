@@ -28,6 +28,8 @@ mvn io.quarkus:quarkus-maven-plugin:2.14.0.Final:create \
   -Dextensions="hibernate-orm-panache, jdbc-mysql"
 ```
 
+With Azure Function Maven plugin:
+
 ```
 For development environment deployment, use mvn command:
 
