@@ -35,7 +35,7 @@ mvn azure-functions:deploy
 
 To support Azure China deployment, several parameters need to be updated in pom.xml:
 
-1. region should be one of the Azure China Region. For example: chinanorth2 
+1. Parameter region should be one of the Azure China Region. For example: chinanorth2 
  <plugin>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>azure-functions-maven-plugin</artifactId>
@@ -45,7 +45,7 @@ To support Azure China deployment, several parameters need to be updated in pom.
           <appName>${functionAppName}</appName>
           <region>chinanorth2</region> .........
 
-2. environment should be "AzureChina" and provide a service principle with contributor role for the function.
+2. Parameter environment should be "AzureChina" and provide a service principle with contributor role for the function.
 
  <plugin>
         <groupId>com.microsoft.azure</groupId>
