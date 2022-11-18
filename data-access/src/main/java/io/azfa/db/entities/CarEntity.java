@@ -1,8 +1,6 @@
-package io.quarkus.db.entities;
+package io.azfa.db.entities;
 
 
-import javax.persistence.Column;
-import javax.persistence.Convert;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,15 +16,10 @@ public class CarEntity implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column
     private boolean active;
 
-    @Column
-    @Convert(converter = LocalDateTimeConverter.class)
     private LocalDateTime created;
 
-    @Column
-    @Convert(converter = LocalDateTimeConverter.class)
     private LocalDateTime firstRegistrationDate;
 
     private String description;
@@ -34,15 +27,11 @@ public class CarEntity implements Serializable {
     public CarEntity() {
     }
 
-    public CarEntity(boolean active, LocalDateTime created, LocalDateTime firstRegistrationDate) {
-        this(null, active, created, firstRegistrationDate);
-    }
-
-    public CarEntity(Long id, boolean active, LocalDateTime created, LocalDateTime firstRegistrationDate) {
-        this.id = id;
+    public CarEntity(boolean active, LocalDateTime created, LocalDateTime firstRegistrationDate, String description) {
         this.active = active;
         this.created = created;
         this.firstRegistrationDate = firstRegistrationDate;
+        this.description = description;
     }
 
     public Long getId() {
@@ -92,6 +81,7 @@ public class CarEntity implements Serializable {
             ", active=" + active +
             ", created=" + created +
             ", firstRegistrationDate=" + firstRegistrationDate +
+            ", description=" + description +
             '}';
     }
 }

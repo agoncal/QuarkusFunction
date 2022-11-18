@@ -1,4 +1,4 @@
-package io.quarkus;
+package io.azfa.function;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;

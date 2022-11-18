@@ -1,3 +1,7 @@
+# Application
+create.sql
+drop.sql
+
 # Compiled class file
 *.class
 

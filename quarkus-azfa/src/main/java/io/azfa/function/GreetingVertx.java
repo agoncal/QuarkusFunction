@@ -1,4 +1,4 @@
-package io.quarkus;
+package io.azfa.function;
 
 import io.quarkus.vertx.web.Route;
 import io.vertx.ext.web.RoutingContext;

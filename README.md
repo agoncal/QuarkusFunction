@@ -13,7 +13,7 @@ mvn io.quarkus:quarkus-maven-plugin:2.14.0.Final:create \
   -DplatformVersion=2.14.0.Final \
   -DprojectGroupId=pg.home \
   -DprojectArtifactId=quarkus-azfa \
-  -DclassName="io.quarkus.GreetingResource" \
+  -DclassName="io.azfa.function.CarResource" \
   -Dpath="/cars" \
   -Dextensions="resteasy, resteasy-jackson, undertow, reactive-routes, azure-functions-http"
 ```
@@ -23,7 +23,7 @@ mvn io.quarkus:quarkus-maven-plugin:2.14.0.Final:create \
   -DplatformVersion=2.14.0.Final \
   -DprojectGroupId=pg.home \
   -DprojectArtifactId=data-access \
-  -DclassName="io.quarkus.GreetingResource" \
+  -DclassName="io.azfa.function.CarResource" \
   -Dpath="/cars" \
   -Dextensions="hibernate-orm-panache, jdbc-mysql"
 ```

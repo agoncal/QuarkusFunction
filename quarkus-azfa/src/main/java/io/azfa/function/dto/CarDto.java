@@ -1,7 +1,7 @@
-package io.quarkus.dto;
+package io.azfa.function.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import io.quarkus.db.entities.CarEntity;
+import io.azfa.db.entities.CarEntity;
 
 import java.time.LocalDateTime;
 
