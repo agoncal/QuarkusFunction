@@ -13,12 +13,13 @@
   <artifactId>quarkus-azfa</artifactId>
 
   <properties>
-    <azure.functions.maven.plugin.version>1.18.0</azure.functions.maven.plugin.version>
-    <functionAppName>quarkus-azf-cars</functionAppName>
-    <functionAppRegion>chinanorth2</functionAppRegion>
-    <functionResourceGroup>smarthotel</functionResourceGroup>
-    <function>quarkus-cars</function>
-    <stagingDirectory>${project.build.directory}/azure-functions/${functionAppName}</stagingDirectory>
+    <azure.functions.maven.plugin.version>1.21.0</azure.functions.maven.plugin.version>
+    <function.app.name>fun-quarkus-azf-cars</function.app.name>
+    <function.app.region>northeurope</function.app.region>
+    <function.resource.group>rg-quarkus-azf-cars</function.resource.group>
+    <function.name>quarkus-azf-cars</function.name>
+    <app.insights.name>appi-quarkus-azf-cars</app.insights.name>
+    <staging.directory>${project.build.directory}/azure-functions/${function.app.name}</staging.directory>
     <quarkus.package.type>uber-jar</quarkus.package.type>
   </properties>
   <dependencies>
@@ -100,9 +101,10 @@
         <artifactId>azure-functions-maven-plugin</artifactId>
         <version>${azure.functions.maven.plugin.version}</version>
         <configuration>
-          <resourceGroup>${functionResourceGroup}</resourceGroup>
-          <appName>${functionAppName}</appName>
-          <region>${functionAppRegion}</region>
+          <resourceGroup>${function.resource.group}</resourceGroup>
+          <appName>${function.app.name}</appName>
+          <region>${function.app.region}</region>
+<!--          <appInsightsInstance>${app.insights.name}</appInsightsInstance>-->
           <runtime>
             <!-- runtime os, could be windows, linux or docker-->
             <os>windows</os>
@@ -115,7 +117,7 @@
           <appSettings>
             <property>
               <name>FUNCTIONS_EXTENSION_VERSION</name>
-              <value>~3</value>
+              <value>~4</value>
             </property>
           </appSettings>
           <auth>
@@ -142,7 +144,7 @@
             </goals>
             <configuration>
               <overwrite>true</overwrite>
-              <outputDirectory>${stagingDirectory}</outputDirectory>
+              <outputDirectory>${staging.directory}</outputDirectory>
               <resources>
                 <resource>
                   <directory>${project.basedir}/azure-config</directory>
@@ -163,7 +165,7 @@
             </goals>
             <configuration>
               <overwrite>true</overwrite>
-              <outputDirectory>${stagingDirectory}/quarkus-cars</outputDirectory>
+              <outputDirectory>${staging.directory}/quarkus-cars</outputDirectory>
               <resources>
                 <resource>
                   <directory>${project.basedir}/azure-config</directory>
@@ -191,7 +193,7 @@
             </goals>
             <configuration>
               <sourceFile>${project.build.directory}/${project.artifactId}-${project.version}-runner.jar</sourceFile>
-              <destinationFile>${stagingDirectory}/${project.artifactId}-${project.version}.jar</destinationFile>
+              <destinationFile>${staging.directory}/${project.artifactId}-${project.version}.jar</destinationFile>
             </configuration>
           </execution>
         </executions>
